@@ -35,7 +35,7 @@ function isAreaOfClosedIsland(grid, r, c) {
         return true;
     }
 
-    grid[r][c] = this.LAND;
+    grid[r][c] = this.WATER;
     let up = isAreaOfClosedIsland(grid, r - 1, c);
     let down = isAreaOfClosedIsland(grid, r + 1, c);
     let left = isAreaOfClosedIsland(grid, r, c - 1);
