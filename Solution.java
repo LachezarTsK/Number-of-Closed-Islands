@@ -29,7 +29,7 @@ public class Solution {
             return true;
         }
 
-        grid[r][c] = LAND;
+        grid[r][c] = WATER;
         boolean up = isAreaOfClosedIsland(grid, r - 1, c);
         boolean down = isAreaOfClosedIsland(grid, r + 1, c);
         boolean left = isAreaOfClosedIsland(grid, r, c - 1);
