@@ -3,7 +3,6 @@ public class Solution {
 
     private static final int LAND = 0;
     private static final int WATER = 1;
-    private static final int CLOSED_ISLAND = 2;
     private int rows;
     private int columns;
 
@@ -14,7 +13,7 @@ public class Solution {
 
         for (int r = 1; r < rows - 1; r++) {
             for (int c = 1; c < columns - 1; c++) {
-                if (grid[r][c] == 0 && isAreaOfClosedIsland(grid, r, c)) {
+                if (grid[r][c] == LAND && isAreaOfClosedIsland(grid, r, c)) {
                     countClosedIslands++;
                 }
             }
@@ -26,12 +25,11 @@ public class Solution {
         if (r < 0 || r == rows || c < 0 || c == columns) {
             return false;
         }
-        if (grid[r][c] == WATER || grid[r][c] == CLOSED_ISLAND) {
+        if (grid[r][c] == WATER) {
             return true;
         }
 
-        // 'grid[r][c] = WATER' will also work. 'CLOSED_ISLAND' is for the sake of completeness.
-        grid[r][c] = CLOSED_ISLAND;
+        grid[r][c] = LAND;
         boolean up = isAreaOfClosedIsland(grid, r - 1, c);
         boolean down = isAreaOfClosedIsland(grid, r + 1, c);
         boolean left = isAreaOfClosedIsland(grid, r, c - 1);
