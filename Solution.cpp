@@ -33,7 +33,7 @@ private:
             return true;
         }
 
-        grid[r][c] = LAND;
+        grid[r][c] = WATER;
         bool up = isAreaOfClosedIsland(grid, r - 1, c);
         bool down = isAreaOfClosedIsland(grid, r + 1, c);
         bool left = isAreaOfClosedIsland(grid, r, c - 1);
